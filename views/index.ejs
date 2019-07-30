@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saint-Cézaire-sur-Siagne</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <div class='testcontainer' id='home'>
+      <img id='main-img' src='./assets/img/main.jpg' alt='mountain' style="width: 100%;">
+
+      <nav class="stroke">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#house">House</a></li>
+          <li><a href="#town">Town</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class='main'>
+          <h1>1 Rue Mistral, <br> Saint-Cézaire-sur-Siagne</h1>
+          <div class='btn'>
+            <button class='button'>Contact Us Now</button>
+          </div>
+      </div>
+    </div>
+
+  <div class='more-info' id='house'>
+    <h1>House</h1>
+    <p>Set near the edge of the village</p><br>------</p>
+    <hr>
+  </div>
+
+  <div class='pictures'>
+    <div class='row'>
+      <img class='myImg'src='assets/img/mountain1.jpg' onclick="onClick(this)">
+      <img class='myImg' src='assets/img/mountain2.jpg' onclick="onClick(this)">
+    </div>
+    <div class='row'>
+      <img class='myImg' src='assets/img/mountain4.jpg' onclick="onClick(this)">
+      <img class='myImg' src='assets/img/mountain3.jpg' onclick="onClick(this)">
+    </div>
+  </div>
+
+  <div id="modal01" class="modal" onclick="this.style.display='none'">
+      <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <div class="modal-content">
+        <img id="img01" style="max-width:100%">
+      </div>
+  </div>
+
+  <div class='more-info' id='town'>
+      <h1>Town</h1>
+      <p>info about town<br> map of town</p>
+      <hr>
+  </div>
+
+  <div class='more-info' id='location'>
+      <h1>Location</h1>
+      <p>Google maps<br> .</p>
+      <hr>
+  </div>
+
+  <div class='more-info' id='contact'>
+      <h1>Contact</h1>
+      <p>Elizabeth De Stanford<br>artemisdiana@btinernet.com</p>
+      <hr>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  // pictures - gets element on click and gets elements src and sets display = block to modal
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+  }
+
+  // button onclick
+
+  $('button').click(function() {
+    $('html, body').animate({
+      scrollTop: $('#contact').offset().top},
+      'fast');
+    });
+  
+  // navbar scroll
+
+  $(window).scroll(function() {
+    const position = $("#house").position();
+    const main = $(".main").position();
+    console.log(position);
+    if (scrollY >= position.top - 20) {
+      $('.stroke').removeClass('scrollmain');
+      $('.stroke').addClass('scroll');
+    } else {
+      if (scrollY <= main.top - 100) {
+        $('.stroke').removeClass('scroll');
+        $('.stroke').removeClass('scrollmain');
+      } else {
+        $('.stroke').removeClass('scroll');
+        $('.stroke').addClass('scrollmain');
+      }
+    }
+  })
+
+
+</script>
+
+</body>
+</html>
